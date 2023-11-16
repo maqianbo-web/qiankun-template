@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import './public-path';
 import App from './App.vue';
+import './public-path';
 import routes from './router';
 // import store from './store';
 
@@ -20,7 +20,6 @@ function render(props = {}) {
     router = new VueRouter({
         // 注意这里的name,最好不要写死，直接使用主应用传过来的name
         base: window.__POWERED_BY_QIANKUN__ ? `/${props.name}` : '/',
-        mode: 'history',
         routes,
     });
     Vue.use(VueRouter);
@@ -40,7 +39,11 @@ export async function bootstrap() {
 }
 
 export async function mount(props) {
-    console.log('props', props);
+    props.onGlobalStateChange((state, prev) => {
+        // state: 变更后的状态; prev 变更前的状态
+        console.log('子应用', state, prev);
+    });
+
     render(props);
 }
 

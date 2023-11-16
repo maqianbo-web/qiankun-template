@@ -1,5 +1,5 @@
 const getters = {
     isCollapse: (state) => state.settings.isCollapse,
-    isMicro: (state) => state.settings.isMicro,
+    user: (state) => state.app.user,
 };
 export default getters;

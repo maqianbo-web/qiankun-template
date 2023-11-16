@@ -27,7 +27,7 @@ const getDevServe = () => {
             errors: true,
         },
         https: false, // https:{type:Boolean}
-        open: true, //配置自动启动浏览器
+        open: false, //配置自动启动浏览器
         hotOnly: true, // 热更新
         // 修改默认端口，和注册时一直
         port: 8002,

@@ -17,33 +17,17 @@ new Vue({
     render: (h) => h(App),
 }).$mount('#app');
 
-import {
-    registerMicroApps,
-    start,
-    addGlobalUncaughtErrorHandler,
-    setDefaultMountApp,
-    initGlobalState,
-} from 'qiankun';
+import { addGlobalUncaughtErrorHandler, registerMicroApps, start } from 'qiankun';
 import { Microconfig } from './registerMicroAppsConfig.js';
 
 /**
  * 注册微应用
  */
-registerMicroApps(Microconfig, {
-    // qiankun 生命周期钩子 - 微应用加载前
-    beforeLoad: (app) => {
-        return Promise.resolve();
-    },
-    // qiankun 生命周期钩子 - 微应用挂载后
-    afterMount: (app) => {
-        return Promise.resolve();
-    },
-});
+registerMicroApps(Microconfig);
 
 /**
  * 启动 qiankun
  */
-// start();
 start({
     prefetch: true, // 开启预加载
     sandbox: {
@@ -61,18 +45,3 @@ start({
 addGlobalUncaughtErrorHandler((handler) => {
     console.log('异常捕获', handler);
 });
-
-// // 全局状态
-// const state = {
-//     id: 'main_主应用',
-// };
-// const actions = initGlobalState(state);
-
-// actions.onGlobalStateChange((state, prev) => {
-//     // state: 变更后的状态; prev 变更前的状态
-//     console.log(state, prev);
-// });
-
-// actions.setGlobalState({
-//     id: 'main_主应用',
-// });

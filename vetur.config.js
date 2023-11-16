@@ -3,7 +3,10 @@ module.exports = {
     {
       root: "./main",
       package: "./package.json",
-      jsconfig: "./jsconfig.json",
+    },
+    {
+      root: "./vue2-js",
+      package: "./package.json",
     },
   ],
 };

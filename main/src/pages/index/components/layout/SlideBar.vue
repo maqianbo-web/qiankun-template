@@ -4,21 +4,18 @@
         :class="{ 'menu-active': !isCollapse }"
         background-color="#545c64"
         text-color="#fff"
-        :collapse="isCollapse"
         :router="true"
-        @select="handleSelect"
+        :collapse="isCollapse"
     >
         <el-menu-item v-for="(v, index) in routes" :key="v.path" :index="v.path">
-            <template slot="title">
-                <i :class="icons[index % 4]"></i>
-                <span slot="title">{{ v.name }}</span>
-            </template>
+            <i :class="icons[index % 4]"></i>
+            <span slot="title">{{ v.name }}</span>
         </el-menu-item>
     </el-menu>
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex';
+import { mapGetters } from 'vuex';
 import { getRoutes } from '../../utils/index';
 export default {
     name: '',
@@ -37,16 +34,7 @@ export default {
     filters: {},
     watch: {},
     created() {},
-    methods: {
-        ...mapMutations('settings', ['SET_ISMICRO']),
-        handleSelect(key) {
-            console.log('key', key);
-            const isMicro = this.routes.find((v) => v.path === key).isMicro;
-            if (!isMicro) {
-                this.SET_ISMICRO(false);
-            }
-        },
-    },
+    methods: {},
 };
 </script>
 <style lang="less" scoped>

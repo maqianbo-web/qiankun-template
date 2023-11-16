@@ -1,6 +1,14 @@
-const state = {};
+const state = {
+    user: {
+        name: 'maqianbo',
+    },
+};
 
-const mutations = {};
+const mutations = {
+    SET_USER(state, val) {
+        state.user = val;
+    },
+};
 
 const actions = {};
 

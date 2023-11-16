@@ -12,7 +12,6 @@
 <script>
 import SlideBar from './SlideBar.vue';
 import Header from './Header.vue';
-import { mapGetters } from 'vuex';
 export default {
     name: '',
     components: {
@@ -22,16 +21,8 @@ export default {
     data() {
         return {};
     },
-    computed: {
-        ...mapGetters(['isMicro']),
-    },
+    computed: {},
     filters: {},
-    // watch: {
-    //     $route(to, from) {
-    //         console.log(to.path, from.path, to.path.split('/'));
-    //         this.isMiscro = routes.find((v) => v.path === to.path.split('/')[1]).isMicro;
-    //     },
-    // },
     created() {},
     methods: {},
 };
